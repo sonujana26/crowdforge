@@ -1,0 +1,41 @@
+{
+  "name": "crowdforge",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=24.12.0"
+  },
+  "scripts": {
+    "unity:test": "powershell -NoProfile -File tools/test-unity.ps1",
+    "unity:build": "powershell -NoProfile -File tools/build-unity.ps1",
+    "unity:stage": "node tools/stage-unity.mjs",
+    "dev": "concurrently -k \"corepack pnpm --filter @crowdforge/web dev\" \"corepack pnpm --filter @crowdforge/server dev\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "corepack pnpm --filter @crowdforge/web build && corepack pnpm --filter @crowdforge/server build",
+    "vercel-build": "pnpm --filter @crowdforge/web build",
+    "start": "node --env-file-if-exists=.env apps/server/dist/index.js",
+    "lint": "eslint .",
+    "format": "prettier --write apps tests package.json tsconfig.json tsconfig.base.json eslint.config.js vercel.json",
+    "format:check": "prettier --check apps tests package.json tsconfig.json tsconfig.base.json eslint.config.js vercel.json",
+    "check": "corepack pnpm typecheck && corepack pnpm lint && corepack pnpm test && corepack pnpm build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/express": "^5.0.0",
+    "@types/express-session": "^1.18.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/supertest": "^6.0.0",
+    "concurrently": "^9.2.0",
+    "eslint": "^9.39.0",
+    "prettier": "^3.9.10",
+    "socket.io-client": "^4.8.0",
+    "supertest": "^7.1.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "4.1.12"
+  }
+}

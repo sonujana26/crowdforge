@@ -1,0 +1,12 @@
+{
+  "name": "@crowdforge/shared",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/contracts.ts",
+    "./unity": "./src/unity.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.6"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "protocol": 1,
+  "loaderUrl": "/unity/Build/UnityWeb.loader.js",
+  "dataUrl": "/unity/Build/UnityWeb.data",
+  "frameworkUrl": "/unity/Build/UnityWeb.framework.js",
+  "codeUrl": "/unity/Build/UnityWeb.wasm"
+}
